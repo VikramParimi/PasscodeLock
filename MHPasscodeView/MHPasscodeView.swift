@@ -7,23 +7,11 @@
 
 import UIKit
 
-public enum MHPasscode {
-    case accessCode
-    case participantId
-    case other
-}
-
-enum MHPasscodeFiller {
-    static let emptyCircle  = "○"
-    static let filledCircle = "●"
-}
-
 public class MHPasscodeView: UIView {
-    
+
     public var passcode: MHPasscode = .participantId
     
-    private var passcodeText: String?
-    private var secureEntry: Bool = false
+    private lazy var passcodeText: String = ""
     
     @IBOutlet private weak var passcodeLabel: UILabel!
     
@@ -50,7 +38,7 @@ public class MHPasscodeView: UIView {
     
     private func createPasscodePlaceHolder() {
         passcodeLabel.text = passcode.placeHolder
-        passcodeLabel.addCharacterSpacing(kernValue: passcode.kernValue)
+        passcodeLabel.updatePasscodeAppearance(kernValue: passcode.kernValue)
     }
 }
 
@@ -66,35 +54,52 @@ extension MHPasscodeView: UIKeyInput {
     }
     
     public var hasText: Bool {
-        if let text = passcodeText {
-            return !text.isEmpty
-        }
-        return false
+        return !passcodeText.isEmpty
     }
 
     public func insertText(_ text: String) {
+        
+        passcodeText.append(text)
+        
         let newString = passcodeLabel.text?.replacingOccurrences(of: passcode.insertionRegEx,
-                                                                 with: passcode.secureEntry ? "$1\(MHPasscodeFiller.filledCircle)" : "$1\(text)",
+                                                                 with: passcode.secureEntry ? "$1\(Circle.filled)" : "$1\(text)",
                                                                  options: .regularExpression,
                                                                  range: nil)
         passcodeLabel.text = newString
-        passcodeLabel.addCharacterSpacing(kernValue: passcode.kernValue)
+        passcodeLabel.updatePasscodeAppearance(kernValue: passcode.kernValue)
     }
     
     public func deleteBackward() {
+        
+        guard hasText else {
+            return
+        }
+        passcodeText.removeLast()
+        
         let newString = passcodeLabel.text?.replacingOccurrences(of: passcode.deletionRegEx,
-                                                                 with: "$1\(MHPasscodeFiller.emptyCircle)",
+                                                                 with: "$1\(Circle.empty)",
                                                                  options: .regularExpression,
                                                                  range: nil)
         passcodeLabel.text = newString
-        passcodeLabel.addCharacterSpacing(kernValue: passcode.kernValue)
+        passcodeLabel.updatePasscodeAppearance(kernValue: passcode.kernValue)
     }
 }
 
 extension UILabel {
-    func addCharacterSpacing(kernValue: Double) {
-        let attributedString = NSMutableAttributedString(string: text!)
-        attributedString.addAttributes([.kern : kernValue], range: NSRange(location: 0, length: attributedString.length - 1))
+    func updatePasscodeAppearance(kernValue: Double) {
+        guard let labelText = text else { return  }
+        let attributedString = NSMutableAttributedString(string: labelText)
+        if let range = text?.range(of: "\\d+",
+                                   options: .regularExpression,
+                                   range: nil,
+                                   locale: nil) {
+            let length = text?.distance(from: range.lowerBound, to: range.upperBound)
+            attributedString.addAttributes([.foregroundColor: UIColor.black,
+                                            .font: UIFont.systemFont(ofSize: 22)],
+                                           range: NSRange(location: 0, length: length!))
+        }
+        attributedString.addAttributes([.kern : kernValue],
+                                       range: NSRange(location: 0, length: attributedString.length - 1))
         attributedText = attributedString
     }
 }

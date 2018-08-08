@@ -7,9 +7,20 @@
 
 import Foundation
 
+public enum MHPasscode {
+    case accessCode
+    case participantId
+    case other
+}
+
+enum Circle {
+    static let empty  = "○"
+    static let filled = "●"
+}
+
 extension MHPasscode {
     var placeHolder: String {
-        return String(repeating: MHPasscodeFiller.emptyCircle,
+        return String(repeating: Circle.empty,
                       count: self.length)
     }
     
@@ -26,7 +37,7 @@ extension MHPasscode {
         }
     }
     
-    var kernValue: Double {
+    public var kernValue: Double {
         get {
             switch self {
             case .accessCode:
@@ -50,7 +61,7 @@ extension MHPasscode {
     
     var insertionRegEx: String {
         get {
-            return "^(.*?)\(MHPasscodeFiller.emptyCircle)"
+            return "^(.*?)\(Circle.empty)"
         }
     }
     
@@ -58,7 +69,7 @@ extension MHPasscode {
         get {
             switch self {
             case .accessCode:
-                return "(?:.(?!\(MHPasscodeFiller.filledCircle)))"
+                return "(?:.(?!\(Circle.filled)))"
             case .participantId, .other:
                 return "(?:.(?![0-9]))"
             }
