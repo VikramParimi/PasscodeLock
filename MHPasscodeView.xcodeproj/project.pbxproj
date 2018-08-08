@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB1D3070211B6D8300F0EA4A /* MHPasscode+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D306F211B6D8300F0EA4A /* MHPasscode+Custom.swift */; };
 		FB8BB9D12119C77100C23FBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8BB9D02119C77100C23FBC /* AppDelegate.swift */; };
 		FB8BB9D32119C77100C23FBC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8BB9D22119C77100C23FBC /* ViewController.swift */; };
 		FB8BB9D62119C77100C23FBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB8BB9D42119C77100C23FBC /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB1D306F211B6D8300F0EA4A /* MHPasscode+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MHPasscode+Custom.swift"; sourceTree = "<group>"; };
 		FB8BB9CD2119C77100C23FBC /* MHPasscodeView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MHPasscodeView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8BB9D02119C77100C23FBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB8BB9D22119C77100C23FBC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				FB8BB9D02119C77100C23FBC /* AppDelegate.swift */,
 				FB8BB9D22119C77100C23FBC /* ViewController.swift */,
 				FB8BB9F02119C96100C23FBC /* MHPasscodeView.swift */,
+				FB1D306F211B6D8300F0EA4A /* MHPasscode+Custom.swift */,
 				FB8BB9D42119C77100C23FBC /* Main.storyboard */,
 				FB8BB9D72119C77300C23FBC /* Assets.xcassets */,
 				FB8BB9D92119C77300C23FBC /* LaunchScreen.storyboard */,
@@ -203,6 +206,7 @@
 				FB8BB9D32119C77100C23FBC /* ViewController.swift in Sources */,
 				FB8BB9D12119C77100C23FBC /* AppDelegate.swift in Sources */,
 				FB8BB9F12119C96100C23FBC /* MHPasscodeView.swift in Sources */,
+				FB1D3070211B6D8300F0EA4A /* MHPasscode+Custom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

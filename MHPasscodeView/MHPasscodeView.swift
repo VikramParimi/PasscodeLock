@@ -7,31 +7,20 @@
 
 import UIKit
 
-public enum MHPasscodeType {
+public enum MHPasscode {
     case accessCode
     case participantId
     case other
 }
 
-private enum MHPasscodeLength: Int {
-    case accessCode    = 6
-    case participantId = 7
-    case other         = 10
-}
-
-private enum MHPasscodeKernValue: Double {
-    case accessCode    = 30
-    case participantId = 20
-}
-
-private enum MHPasscodePlaceHolder {
+enum MHPasscodeFiller {
     static let emptyCircle  = "○"
     static let filledCircle = "●"
 }
 
 public class MHPasscodeView: UIView {
     
-    public var type: MHPasscodeType = .accessCode
+    public var passcode: MHPasscode = .participantId
     
     private var passcodeText: String?
     private var secureEntry: Bool = false
@@ -60,20 +49,8 @@ public class MHPasscodeView: UIView {
     }
     
     private func createPasscodePlaceHolder() {
-        passcodeText = String(repeating: MHPasscodePlaceHolder.emptyCircle,
-                              count: MHPasscodeLength.accessCode.rawValue)
-        
-        passcodeLabel.text = passcodeText
-        passcodeLabel.addCharacterSpacing(kernValue: MHPasscodeKernValue.accessCode.rawValue)
-        
-        switch type {
-        case .accessCode:
-            break
-        case .participantId:
-            break
-        case .other:
-            break
-        }
+        passcodeLabel.text = passcode.placeHolder
+        passcodeLabel.addCharacterSpacing(kernValue: passcode.kernValue)
     }
 }
 
@@ -96,30 +73,21 @@ extension MHPasscodeView: UIKeyInput {
     }
 
     public func insertText(_ text: String) {
-        let insertionRegEX = "^(.*?)\(MHPasscodePlaceHolder.emptyCircle)"
-        let newString = passcodeLabel.text?.replacingOccurrences(of: insertionRegEX,
-                                                                 with: "$1\(MHPasscodePlaceHolder.filledCircle)",
+        let newString = passcodeLabel.text?.replacingOccurrences(of: passcode.insertionRegEx,
+                                                                 with: passcode.secureEntry ? "$1\(MHPasscodeFiller.filledCircle)" : "$1\(text)",
                                                                  options: .regularExpression,
                                                                  range: nil)
         passcodeLabel.text = newString
-        passcodeLabel.addCharacterSpacing(kernValue: MHPasscodeKernValue.accessCode.rawValue)
+        passcodeLabel.addCharacterSpacing(kernValue: passcode.kernValue)
     }
     
     public func deleteBackward() {
-        var deletionRegEX = ""
-        
-        if type == .accessCode {
-            deletionRegEX = "(?:.(?!\(MHPasscodePlaceHolder.filledCircle)))"
-        } else {
-            deletionRegEX = "(?:.(?![0-9]))"
-        }
-        
-        let newString = passcodeLabel.text?.replacingOccurrences(of: deletionRegEX,
-                                                                 with: "$1\(MHPasscodePlaceHolder.filledCircle)",
+        let newString = passcodeLabel.text?.replacingOccurrences(of: passcode.deletionRegEx,
+                                                                 with: "$1\(MHPasscodeFiller.emptyCircle)",
                                                                  options: .regularExpression,
                                                                  range: nil)
         passcodeLabel.text = newString
-        passcodeLabel.addCharacterSpacing(kernValue: MHPasscodeKernValue.accessCode.rawValue)
+        passcodeLabel.addCharacterSpacing(kernValue: passcode.kernValue)
     }
 }
 
