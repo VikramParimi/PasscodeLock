@@ -37,7 +37,7 @@ extension MHPasscode {
         }
     }
     
-    public var kernValue: Double {
+    var kernValue: Double {
         get {
             switch self {
             case .accessCode:

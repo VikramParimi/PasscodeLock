@@ -9,9 +9,9 @@ import UIKit
 
 public class MHPasscodeView: UIView {
 
-    public var passcode: MHPasscode = .participantId
+    public var passcode: MHPasscode = .accessCode
     
-    private lazy var passcodeText: String = ""
+    private var passcodeText: String = ""
     
     @IBOutlet private weak var passcodeLabel: UILabel!
     
@@ -21,7 +21,7 @@ public class MHPasscodeView: UIView {
     
     open override func awakeFromNib() {
         super.awakeFromNib()
-        createPasscodePlaceHolder()
+        updateView()
     }
     
     open override func layoutSubviews() {
@@ -36,7 +36,7 @@ public class MHPasscodeView: UIView {
         return super.becomeFirstResponder()
     }
     
-    private func createPasscodePlaceHolder() {
+    private func updateView() {
         passcodeLabel.text = passcode.placeHolder
         passcodeLabel.updatePasscodeAppearance(kernValue: passcode.kernValue)
     }
@@ -59,6 +59,7 @@ extension MHPasscodeView: UIKeyInput {
 
     public func insertText(_ text: String) {
         
+        guard canInsertCharacters() else { return }
         passcodeText.append(text)
         
         let newString = passcodeLabel.text?.replacingOccurrences(of: passcode.insertionRegEx,
@@ -82,6 +83,13 @@ extension MHPasscodeView: UIKeyInput {
                                                                  range: nil)
         passcodeLabel.text = newString
         passcodeLabel.updatePasscodeAppearance(kernValue: passcode.kernValue)
+    }
+    
+    func canInsertCharacters() -> Bool {
+        if passcodeText.count != passcode.length {
+            return true
+        }
+        return false
     }
 }
 
