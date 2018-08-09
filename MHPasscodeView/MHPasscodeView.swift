@@ -8,10 +8,31 @@
 import UIKit
 
 open class MHPasscodeView: UIView, PasscodeConfigurable {
-
-    public var passcode: MHPasscode = .other
     
     private var passcodeText: String = ""
+    
+    private var placeHolderViews: [PinView] {
+        var views = [PinView]()
+        for _ in 0..<length {
+            var pinView: PinView = PinView()
+            pinView.translatesAutoresizingMaskIntoConstraints = false
+            pinView.widthAnchor.constraint(equalToConstant: 30).isActive = true
+            pinView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            
+            pinView.isSecureEntry = isSecureEntry
+            
+            pinView.indicator = Indicator()
+            pinView.indicator?.translatesAutoresizingMaskIntoConstraints = false
+            
+            pinView.indicator?.widthAnchor.constraint(equalToConstant: 10).isActive = true
+            pinView.indicator?.heightAnchor.constraint(equalToConstant: 10).isActive = true
+            pinView.indicator?.centerXAnchor.constraint(equalTo: pinView.centerXAnchor).isActive = true
+            pinView.indicator?.centerYAnchor.constraint(equalTo: pinView.centerYAnchor).isActive = true
+            
+            views.append(pinView)
+        }
+        return views
+    }
     
     @IBOutlet private weak var passcodeView: UIStackView!
     
@@ -37,10 +58,10 @@ open class MHPasscodeView: UIView, PasscodeConfigurable {
     }
     
     private func updateView() {
-        passcodeView.spacing      = passcode.spacing
+        passcodeView.spacing      = spacing
         passcodeView.distribution = .equalSpacing
         passcodeView.alignment    = .center
-        for view in passcode.placeHolderViews {
+        for view in placeHolderViews {
             passcodeView.addArrangedSubview(view)
         }
     }
@@ -66,7 +87,7 @@ extension MHPasscodeView: UIKeyInput {
         guard canInsertCharacters() else { return }
         passcodeText.append(text)
         
-        guard let view = passcodeView.arrangedSubviews.filter({ (view) -> Bool in
+        guard var view = passcodeView.arrangedSubviews.filter({ (view) -> Bool in
             if let pinView = view as? PinView,
                 pinView.isFilled == false {
                 return true
@@ -85,7 +106,7 @@ extension MHPasscodeView: UIKeyInput {
         }
         passcodeText.removeLast()
         
-        guard let view = passcodeView.arrangedSubviews.filter({ (view) -> Bool in
+        guard var view = passcodeView.arrangedSubviews.filter({ (view) -> Bool in
             if let pinView = view as? PinView,
                 pinView.isFilled == true {
                 return true
@@ -98,14 +119,14 @@ extension MHPasscodeView: UIKeyInput {
     }
     
     func canInsertCharacters() -> Bool {
-        if passcodeText.count != passcode.length {
+        if passcodeText.count != length {
             return true
         }
         return false
     }
     
     func toggleAppreanceOfPinview(_ view: PinView, _ pinText: String?) {
-        if passcode.secureEntry {
+        if isSecureEntry {
             view.indicator?.isHidden = false
             view.updateIndicatorApperance()
         } else {
