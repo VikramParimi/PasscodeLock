@@ -18,34 +18,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDs-Ja-PLf" customClass="MHPasscodeView" customModule="MHPasscodeView" customModuleProvider="target">
-                                <rect key="frame" x="30" y="120" width="315" height="100"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIl-iB-dD9">
-                                        <rect key="frame" x="157.5" y="30" width="0.0" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="U6t-Cx-ZqR"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.45490196078431372" green="0.46274509803921571" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="239" placeholderIntrinsicHeight="40" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bdw-wI-sBx">
+                                        <rect key="frame" x="68" y="30" width="239" height="40"/>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="RIl-iB-dD9" firstAttribute="centerY" secondItem="jDs-Ja-PLf" secondAttribute="centerY" id="dgM-cp-bBI"/>
-                                    <constraint firstItem="RIl-iB-dD9" firstAttribute="centerX" secondItem="jDs-Ja-PLf" secondAttribute="centerX" id="fZX-wa-UFl"/>
+                                    <constraint firstItem="bdw-wI-sBx" firstAttribute="centerX" secondItem="jDs-Ja-PLf" secondAttribute="centerX" id="6hf-zh-FfD"/>
                                     <constraint firstAttribute="height" constant="100" id="odd-5Z-Pbh"/>
+                                    <constraint firstItem="bdw-wI-sBx" firstAttribute="centerY" secondItem="jDs-Ja-PLf" secondAttribute="centerY" id="wHX-LH-u1W"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="passcodeLabel" destination="RIl-iB-dD9" id="YVK-tq-dgK"/>
+                                    <outlet property="passcodeView" destination="bdw-wI-sBx" id="CKl-wZ-0pu"/>
                                 </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jDs-Ja-PLf" secondAttribute="trailing" constant="30" id="92k-pZ-tzh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jDs-Ja-PLf" secondAttribute="trailing" id="92k-pZ-tzh"/>
                             <constraint firstItem="jDs-Ja-PLf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Ygb-x2-Xv6"/>
-                            <constraint firstItem="jDs-Ja-PLf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="zpV-RP-gTN"/>
+                            <constraint firstItem="jDs-Ja-PLf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zpV-RP-gTN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

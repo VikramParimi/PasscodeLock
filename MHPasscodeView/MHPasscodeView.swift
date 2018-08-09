@@ -9,11 +9,11 @@ import UIKit
 
 public class MHPasscodeView: UIView {
 
-    public var passcode: MHPasscode = .accessCode
+    public var passcode: MHPasscode = .other
     
     private var passcodeText: String = ""
     
-    @IBOutlet private weak var passcodeLabel: UILabel!
+    @IBOutlet private weak var passcodeView: UIStackView!
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -37,8 +37,12 @@ public class MHPasscodeView: UIView {
     }
     
     private func updateView() {
-        passcodeLabel.text = passcode.placeHolder
-        passcodeLabel.updatePasscodeAppearance(kernValue: passcode.kernValue)
+        passcodeView.spacing      = passcode.spacing
+        passcodeView.distribution = .equalSpacing
+        passcodeView.alignment    = .center
+        for view in passcode.placeHolderViews {
+            passcodeView.addArrangedSubview(view)
+        }
     }
 }
 
@@ -62,12 +66,16 @@ extension MHPasscodeView: UIKeyInput {
         guard canInsertCharacters() else { return }
         passcodeText.append(text)
         
-        let newString = passcodeLabel.text?.replacingOccurrences(of: passcode.insertionRegEx,
-                                                                 with: passcode.secureEntry ? "$1\(Circle.filled)" : "$1\(text)",
-                                                                 options: .regularExpression,
-                                                                 range: nil)
-        passcodeLabel.text = newString
-        passcodeLabel.updatePasscodeAppearance(kernValue: passcode.kernValue)
+        guard let view = passcodeView.arrangedSubviews.filter({ (view) -> Bool in
+            if let pinView = view as? PinView,
+                pinView.isFilled == false {
+                return true
+            }
+            return false
+        }).first as? PinView else { return  }
+        
+        view.isFilled = true
+        toggleAppreanceOfPinview(view, text)
     }
     
     public func deleteBackward() {
@@ -77,12 +85,16 @@ extension MHPasscodeView: UIKeyInput {
         }
         passcodeText.removeLast()
         
-        let newString = passcodeLabel.text?.replacingOccurrences(of: passcode.deletionRegEx,
-                                                                 with: "$1\(Circle.empty)",
-                                                                 options: .regularExpression,
-                                                                 range: nil)
-        passcodeLabel.text = newString
-        passcodeLabel.updatePasscodeAppearance(kernValue: passcode.kernValue)
+        guard let view = passcodeView.arrangedSubviews.filter({ (view) -> Bool in
+            if let pinView = view as? PinView,
+                pinView.isFilled == true {
+                return true
+            }
+            return false
+        }).last as? PinView else { return  }
+        
+        view.isFilled = false
+        toggleAppreanceOfPinview(view, nil)
     }
     
     func canInsertCharacters() -> Bool {
@@ -91,23 +103,14 @@ extension MHPasscodeView: UIKeyInput {
         }
         return false
     }
-}
-
-extension UILabel {
-    func updatePasscodeAppearance(kernValue: Double) {
-        guard let labelText = text else { return  }
-        let attributedString = NSMutableAttributedString(string: labelText)
-        if let range = text?.range(of: "\\d+",
-                                   options: .regularExpression,
-                                   range: nil,
-                                   locale: nil) {
-            let length = text?.distance(from: range.lowerBound, to: range.upperBound)
-            attributedString.addAttributes([.foregroundColor: UIColor.black,
-                                            .font: UIFont.systemFont(ofSize: 22)],
-                                           range: NSRange(location: 0, length: length!))
+    
+    func toggleAppreanceOfPinview(_ view: PinView, _ pinText: String?) {
+        if passcode.secureEntry {
+            view.indicator?.isHidden = false
+            view.updateIndicatorApperance()
+        } else {
+            view.indicator?.isHidden = true
+            view.pinText = pinText
         }
-        attributedString.addAttributes([.kern : kernValue],
-                                       range: NSRange(location: 0, length: attributedString.length - 1))
-        attributedText = attributedString
     }
 }
