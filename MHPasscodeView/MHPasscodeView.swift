@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class MHPasscodeView: UIView {
+open class MHPasscodeView: UIView, PasscodeConfigurable {
 
     public var passcode: MHPasscode = .other
     

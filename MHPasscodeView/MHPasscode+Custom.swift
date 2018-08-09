@@ -157,9 +157,3 @@ extension Indicator {
         backgroundColor = UIColor.lightGray
     }
 }
-
-class PinLabel: UILabel {
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-}
