@@ -13,8 +13,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        passcodeView.passcode = Passcode()
+        passcodeView.set(PasscodeConfiguration())
+        passcodeView.delegate = self
     }
-    
+}
+
+extension ViewController: Passcodable {
+    func didEnter(_ passcode: String) {
+        print("passcode: \(passcode)")
+    }
 }
 

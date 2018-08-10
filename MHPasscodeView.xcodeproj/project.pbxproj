@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FB074920211DFDAF00F7773F /* MHPasscodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB07491F211DFDAF00F7773F /* MHPasscodeView.xib */; };
-		FB074922211E0AB900F7773F /* MHPasscodeView+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB074921211E0AB900F7773F /* MHPasscodeView+Custom.swift */; };
+		FB074922211E0AB900F7773F /* MHPasscodeView+UIKeyInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB074921211E0AB900F7773F /* MHPasscodeView+UIKeyInput.swift */; };
+		FB074924211E1C1100F7773F /* PasscodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB074923211E1C1100F7773F /* PasscodeConfiguration.swift */; };
 		FB1D3070211B6D8300F0EA4A /* MHPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D306F211B6D8300F0EA4A /* MHPinView.swift */; };
 		FB8BB9D12119C77100C23FBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8BB9D02119C77100C23FBC /* AppDelegate.swift */; };
 		FB8BB9D32119C77100C23FBC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8BB9D22119C77100C23FBC /* ViewController.swift */; };
@@ -31,7 +32,8 @@
 
 /* Begin PBXFileReference section */
 		FB07491F211DFDAF00F7773F /* MHPasscodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MHPasscodeView.xib; sourceTree = "<group>"; };
-		FB074921211E0AB900F7773F /* MHPasscodeView+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MHPasscodeView+Custom.swift"; sourceTree = "<group>"; };
+		FB074921211E0AB900F7773F /* MHPasscodeView+UIKeyInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MHPasscodeView+UIKeyInput.swift"; sourceTree = "<group>"; };
+		FB074923211E1C1100F7773F /* PasscodeConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeConfiguration.swift; sourceTree = "<group>"; };
 		FB1D306F211B6D8300F0EA4A /* MHPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHPinView.swift; sourceTree = "<group>"; };
 		FB8BB9CD2119C77100C23FBC /* MHPasscodeView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MHPasscodeView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8BB9D02119C77100C23FBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,7 +90,8 @@
 				FB8BB9D02119C77100C23FBC /* AppDelegate.swift */,
 				FB8BB9D22119C77100C23FBC /* ViewController.swift */,
 				FB8BB9F02119C96100C23FBC /* MHPasscodeView.swift */,
-				FB074921211E0AB900F7773F /* MHPasscodeView+Custom.swift */,
+				FB074921211E0AB900F7773F /* MHPasscodeView+UIKeyInput.swift */,
+				FB074923211E1C1100F7773F /* PasscodeConfiguration.swift */,
 				FB1D306F211B6D8300F0EA4A /* MHPinView.swift */,
 				FB07491F211DFDAF00F7773F /* MHPasscodeView.xib */,
 				FB8BB9D42119C77100C23FBC /* Main.storyboard */,
@@ -212,8 +215,9 @@
 			files = (
 				FB8BB9D32119C77100C23FBC /* ViewController.swift in Sources */,
 				FB8BB9D12119C77100C23FBC /* AppDelegate.swift in Sources */,
+				FB074924211E1C1100F7773F /* PasscodeConfiguration.swift in Sources */,
 				FB8BB9F12119C96100C23FBC /* MHPasscodeView.swift in Sources */,
-				FB074922211E0AB900F7773F /* MHPasscodeView+Custom.swift in Sources */,
+				FB074922211E0AB900F7773F /* MHPasscodeView+UIKeyInput.swift in Sources */,
 				FB1D3070211B6D8300F0EA4A /* MHPinView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
