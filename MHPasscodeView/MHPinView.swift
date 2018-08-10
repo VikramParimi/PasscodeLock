@@ -7,8 +7,12 @@
 
 import UIKit
 
-class PinView: UIView, PinViewConfigurable {
+class PinView: UIView {
     
+    private lazy var pinLabel = UILabel()
+    
+    var isSecureEntry: Bool = false
+    var isFilled: Bool = false
     var indicator: Indicator? {
         didSet {
             guard let view = indicator else { return }
@@ -26,14 +30,12 @@ class PinView: UIView, PinViewConfigurable {
         }
     }
     
-    private lazy var pinLabel = UILabel()
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
     
     func updateIndicatorApperance() {
@@ -45,11 +47,13 @@ class PinView: UIView, PinViewConfigurable {
     }
     
     func updateLabelApperance(_ pinText: String) {
+        addSubview(pinLabel)
+        
+        pinLabel.isHidden = false
+        
         pinLabel.font = UIFont.systemFont(ofSize: 22)
         pinLabel.textColor = UIColor.black
         pinLabel.text = pinText
-        addSubview(pinLabel)
-        pinLabel.isHidden = false
         
         pinLabel.translatesAutoresizingMaskIntoConstraints = false
         pinLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true

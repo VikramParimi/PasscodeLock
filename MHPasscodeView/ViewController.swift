@@ -13,8 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        passcodeView.length = 10
-        passcodeView.isSecureEntry = true
+        passcodeView.passcode = Passcode()
     }
     
 }
