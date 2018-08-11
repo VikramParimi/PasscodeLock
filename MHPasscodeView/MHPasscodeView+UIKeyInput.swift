@@ -9,11 +9,11 @@ import UIKit
 
 extension MHPasscodeView: UIKeyInput {
     
-    override var canBecomeFirstResponder: Bool {
+    internal override var canBecomeFirstResponder: Bool {
         return true
     }
     
-    override func becomeFirstResponder() -> Bool {
+    internal override func becomeFirstResponder() -> Bool {
         return super.becomeFirstResponder()
     }
     
@@ -27,14 +27,13 @@ extension MHPasscodeView: UIKeyInput {
         
         guard let view = passcodeStackView.arrangedSubviews.filter({ (view) -> Bool in
             if let pinView = view as? PinView,
-                pinView.isFilled == false {
+               pinView.isEmpty() {
                 return true
             }
             return false
         }).first as? PinView else { return }
         
-        view.isFilled = true
-        toggleAppreanceOf(view: view, withtext: text)
+        view.update(fill: true, andText: text, isSecureEntry: passcodeConfiguration.isSecureEntry)
         
         if passscode.count == passcodeConfiguration.length {
             delegate?.didEnter(passscode)
@@ -47,28 +46,17 @@ extension MHPasscodeView: UIKeyInput {
         
         guard let view = passcodeStackView.arrangedSubviews.filter({ (view) -> Bool in
             if let pinView = view as? PinView,
-                pinView.isFilled == true {
+               !pinView.isEmpty() {
                 return true
             }
             return false
         }).last as? PinView else { return  }
         
-        view.isFilled = false
-        toggleAppreanceOf(view: view, withtext: nil)
+        view.update(fill: false, andText: nil, isSecureEntry: passcodeConfiguration.isSecureEntry)
     }
     
     private func canInsertCharacters() -> Bool {
         guard passscode.count == passcodeConfiguration.length else { return true }
         return false
-    }
-    
-    private func toggleAppreanceOf(view: PinView, withtext: String?) {
-        if passcodeConfiguration.isSecureEntry {
-            view.indicator?.isHidden = false
-            view.updateIndicatorApperance()
-        } else {
-            view.indicator?.isHidden = true
-            view.pinText = withtext
-        }
     }
 }

@@ -58,27 +58,16 @@ extension MHPasscodeView {
         }
         passcodeStackView.spacing = CGFloat(passcodeConfiguration.defaultSpacing)
         
-        guard 0..<passcodeConfiguration.length ~= passcodeConfiguration.paddingPosition else { return }
+        guard 0..<passcodeConfiguration.length ~= passcodeConfiguration.customSpacingPosition else { return }
         passcodeStackView.distribution = .fill
         passcodeStackView.setCustomSpacing(CGFloat(passcodeConfiguration.customSpacing),
-                                           after: passcodeStackView.arrangedSubviews[passcodeConfiguration.paddingPosition])
+                                           after: passcodeStackView.arrangedSubviews[passcodeConfiguration.customSpacingPosition])
     }
     
     private var placeHolderViews: [PinView] {
         var views = [PinView]()
         for _ in 0..<passcodeConfiguration.length {
             let pinView: PinView = PinView()
-            pinView.translatesAutoresizingMaskIntoConstraints = false
-            pinView.widthAnchor.constraint(equalToConstant: 30).isActive = true
-            pinView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-            
-            pinView.indicator = Indicator()
-            pinView.indicator?.translatesAutoresizingMaskIntoConstraints = false
-            pinView.indicator?.widthAnchor.constraint(equalToConstant: 10).isActive = true
-            pinView.indicator?.heightAnchor.constraint(equalToConstant: 10).isActive = true
-            pinView.indicator?.centerXAnchor.constraint(equalTo: pinView.centerXAnchor).isActive = true
-            pinView.indicator?.centerYAnchor.constraint(equalTo: pinView.centerYAnchor).isActive = true
-            
             views.append(pinView)
         }
         return views
