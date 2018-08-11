@@ -9,22 +9,21 @@ import UIKit
 
 extension MHPasscodeView: UIKeyInput {
     
-    public var keyboardType: UIKeyboardType {
-        get {
-            return .numberPad
-        }
-        set {
-            self.keyboardType = newValue
-        }
+    override var canBecomeFirstResponder: Bool {
+        return true
     }
     
-    public var hasText: Bool {
-        return !passcodeText.isEmpty
+    override func becomeFirstResponder() -> Bool {
+        return super.becomeFirstResponder()
     }
     
-    public func insertText(_ text: String) {
+    internal var hasText: Bool {
+        return !passscode.isEmpty
+    }
+    
+    internal func insertText(_ text: String) {
         guard canInsertCharacters() else { return }
-        passcodeText.append(text)
+        passscode.append(text)
         
         guard let view = passcodeStackView.arrangedSubviews.filter({ (view) -> Bool in
             if let pinView = view as? PinView,
@@ -37,14 +36,14 @@ extension MHPasscodeView: UIKeyInput {
         view.isFilled = true
         toggleAppreanceOf(view: view, withtext: text)
         
-        if passcodeText.count == passcodeConfiguration.length {
-            delegate?.didEnter(passcodeText)
+        if passscode.count == passcodeConfiguration.length {
+            delegate?.didEnter(passscode)
         }
     }
     
-    public func deleteBackward() {
+    internal func deleteBackward() {
         guard hasText else { return }
-            passcodeText.removeLast()
+            passscode.removeLast()
         
         guard let view = passcodeStackView.arrangedSubviews.filter({ (view) -> Bool in
             if let pinView = view as? PinView,
@@ -58,12 +57,12 @@ extension MHPasscodeView: UIKeyInput {
         toggleAppreanceOf(view: view, withtext: nil)
     }
     
-    func canInsertCharacters() -> Bool {
-        guard passcodeText.count == passcodeConfiguration.length else { return true }
+    private func canInsertCharacters() -> Bool {
+        guard passscode.count == passcodeConfiguration.length else { return true }
         return false
     }
     
-    func toggleAppreanceOf(view: PinView, withtext: String?) {
+    private func toggleAppreanceOf(view: PinView, withtext: String?) {
         if passcodeConfiguration.isSecureEntry {
             view.indicator?.isHidden = false
             view.updateIndicatorApperance()

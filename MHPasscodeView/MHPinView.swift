@@ -11,9 +11,8 @@ class PinView: UIView {
     
     private lazy var pinLabel = UILabel()
     
-    var isSecureEntry: Bool = false
-    var isFilled: Bool = false
-    var indicator: Indicator? {
+    internal var isFilled: Bool = false
+    internal var indicator: Indicator? {
         didSet {
             guard let view = indicator else { return }
             addSubview(view)
@@ -38,7 +37,7 @@ class PinView: UIView {
         super.init(frame: frame)
     }
     
-    func updateIndicatorApperance() {
+    internal func updateIndicatorApperance() {
         if isFilled {
             indicator?.fillView()
         } else {
@@ -46,7 +45,7 @@ class PinView: UIView {
         }
     }
     
-    func updateLabelApperance(_ pinText: String) {
+    internal func updateLabelApperance(_ pinText: String) {
         addSubview(pinLabel)
         
         pinLabel.isHidden = false
@@ -61,14 +60,14 @@ class PinView: UIView {
     }
 }
 
-class Indicator: UIView {
+internal class Indicator: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         rounded()
     }
 }
 
-extension Indicator {
+internal extension Indicator {
     func rounded() {
         layer.cornerRadius = frame.width / 2
         layer.borderWidth = 1

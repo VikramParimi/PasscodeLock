@@ -1,5 +1,5 @@
 //
-//  MHPasscode.swift
+//  MHPasscodeConfiguration.swift
 //  MHPasscodeView
 //
 //  Copyright © 2018 vikram. All rights reserved.

@@ -11,20 +11,19 @@ public protocol Passcodable: class {
     func didEnter(_ passcode: String)
 }
 
-open class MHPasscodeView: UIView {
+final class MHPasscodeView: UIView {
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var passcodeStackView: UIStackView!
     
-    
-    internal var passcodeText = String()
+    internal weak var delegate: Passcodable?
+    internal var passscode = String()
+    internal var keyboardType: UIKeyboardType = .numberPad
     internal var passcodeConfiguration: PasscodeConfiguration = PasscodeConfiguration() {
         didSet {
             setupPasscodeStackView()
         }
     }
-    
-    internal weak var delegate: Passcodable?
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -49,17 +48,10 @@ open class MHPasscodeView: UIView {
     internal func set(_ passcodeConfiguration: PasscodeConfiguration) {
         self.passcodeConfiguration = passcodeConfiguration
     }
-    
-    open override var canBecomeFirstResponder: Bool {
-        return true
-    }
-    
-    open override func becomeFirstResponder() -> Bool {
-        return super.becomeFirstResponder()
-    }
 }
 
 extension MHPasscodeView {
+    
     private func setupPasscodeStackView() {
         placeHolderViews.forEach { (view) in
             passcodeStackView.addArrangedSubview(view)
@@ -76,8 +68,6 @@ extension MHPasscodeView {
         var views = [PinView]()
         for _ in 0..<passcodeConfiguration.length {
             let pinView: PinView = PinView()
-            pinView.isSecureEntry = passcodeConfiguration.isSecureEntry
-            
             pinView.translatesAutoresizingMaskIntoConstraints = false
             pinView.widthAnchor.constraint(equalToConstant: 30).isActive = true
             pinView.heightAnchor.constraint(equalToConstant: 40).isActive = true
