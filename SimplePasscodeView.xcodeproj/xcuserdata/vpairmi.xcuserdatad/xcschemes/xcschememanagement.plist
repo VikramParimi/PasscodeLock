@@ -4,11 +4,13 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MHPasscodeView.xcscheme</key>
+		<key>SimplePasscodeView.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
 	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict/>
 </dict>
 </plist>

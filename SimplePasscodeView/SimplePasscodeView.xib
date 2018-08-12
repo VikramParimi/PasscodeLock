@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MHPasscodeView" customModule="MHPasscodeView" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SimplePasscodeView">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="vVK-Bj-MpA"/>
                 <outlet property="passcodeStackView" destination="p9c-IK-beK" id="MWZ-fG-a5t"/>

@@ -1,20 +1,21 @@
 //
 //  PinIndicator.swift
-//  MHPasscodeView
+//  SimplePasscodeView
 //
-//  Copyright © 2018 vikram. All rights reserved.
+//  Copyright © 2018 Geeko Coco. All rights reserved.
 //
 
 import UIKit
 
-internal class Indicator: UIView {
+class PinIndicator: UIView {
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         rounded()
     }
 }
 
-internal extension Indicator {
+extension PinIndicator {
     func rounded() {
         layer.cornerRadius = frame.width / 2
         layer.borderWidth = 1

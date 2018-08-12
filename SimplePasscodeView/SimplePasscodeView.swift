@@ -1,41 +1,38 @@
 //
 //  MHPasscodeView.swift
-//  MHPasscodeView
+//  SimplePasscodeView
 //
-//  Copyright © 2018 vikram. All rights reserved.
+//  Copyright © 2018 Geeko Coco. All rights reserved.
 //
 
 import UIKit
 
-public protocol Passcodable: class {
+public protocol SimplePasscodeDelegate: class {
     func didEnter(_ passcode: String)
 }
 
-final class MHPasscodeView: UIView {
+public class SimplePasscodeView: UIView {
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var passcodeStackView: UIStackView!
     
-    internal weak var delegate: Passcodable?
-    internal var passscode = String()
-    internal var keyboardType: UIKeyboardType = .numberPad
-    internal var passcodeConfiguration: PasscodeConfiguration = PasscodeConfiguration() {
-        didSet {
-            setupPasscodeStackView()
-        }
-    }
+    public weak var delegate: SimplePasscodeDelegate?
     
+    public var keyboardType: UIKeyboardType = .default
+    internal var passscodeText = String()
+
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-    
+
     private func setup() {
         let view = loadViewFromNib()
         view.frame = bounds
         addSubview(view)
         
         let _ = becomeFirstResponder()
+        setupPasscodeStackView()
     }
     
     private func loadViewFromNib() -> UIView {
@@ -44,29 +41,25 @@ final class MHPasscodeView: UIView {
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         return view
     }
-    
-    internal func set(_ passcodeConfiguration: PasscodeConfiguration) {
-        self.passcodeConfiguration = passcodeConfiguration
-    }
 }
 
-extension MHPasscodeView {
+extension SimplePasscodeView: PasscodeConfigurable {
     
     private func setupPasscodeStackView() {
         placeHolderViews.forEach { (view) in
             passcodeStackView.addArrangedSubview(view)
         }
-        passcodeStackView.spacing = CGFloat(passcodeConfiguration.defaultSpacing)
+        passcodeStackView.spacing = CGFloat(length)
         
-        guard 0..<passcodeConfiguration.length ~= passcodeConfiguration.customSpacingPosition else { return }
+        guard 0..<length ~= customSpacingPosition else { return }
         passcodeStackView.distribution = .fill
-        passcodeStackView.setCustomSpacing(CGFloat(passcodeConfiguration.customSpacing),
-                                           after: passcodeStackView.arrangedSubviews[passcodeConfiguration.customSpacingPosition])
+        passcodeStackView.setCustomSpacing(CGFloat(customSpacing),
+                                           after: passcodeStackView.arrangedSubviews[customSpacingPosition])
     }
     
     private var placeHolderViews: [PinView] {
         var views = [PinView]()
-        for _ in 0..<passcodeConfiguration.length {
+        for _ in 0..<length {
             let pinView: PinView = PinView()
             views.append(pinView)
         }

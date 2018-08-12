@@ -1,24 +1,23 @@
 //
 //  ViewController.swift
-//  MHPasscodeView
+//  SimplePasscodeView
 //
-//  Copyright © 2018 vikram. All rights reserved.
+//  Copyright © 2018 Geeko Coco. All rights reserved.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var passcodeView: MHPasscodeView!
+    @IBOutlet weak var passcodeView: SimplePasscodeView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        passcodeView.set(PasscodeConfiguration())
         passcodeView.delegate = self
     }
 }
 
-extension ViewController: Passcodable {
+extension ViewController: SimplePasscodeDelegate {
     func didEnter(_ passcode: String) {
         print("passcode: \(passcode)")
     }

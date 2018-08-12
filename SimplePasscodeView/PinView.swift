@@ -1,8 +1,8 @@
 //
 //  PinView.swift
-//  MHPasscodeView
+///  SimplePasscodeView
 //
-//  Copyright © 2018 vikram. All rights reserved.
+//  Copyright © 2018 Geeko Coco. All rights reserved.
 //
 
 import UIKit
@@ -16,7 +16,7 @@ private enum PinViewDefaults {
 
 class PinView: UIView {
     
-    private lazy var indicator = Indicator()
+    private lazy var indicator = PinIndicator()
     private lazy var pinLabel  = UILabel()
     private lazy var isFilled: Bool = false
     

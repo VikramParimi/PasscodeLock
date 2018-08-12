@@ -1,9 +1,8 @@
 //
 //  AppDelegate.swift
-//  MHPasscodeView
+//  SimplePasscodeView
 //
-//  Created by Pairmi, Vikram (US - Bengaluru) on 8/7/18.
-//  Copyright © 2018 vikram. All rights reserved.
+//  Copyright © 2018 Geeko Coco. All rights reserved.
 //
 
 import UIKit
