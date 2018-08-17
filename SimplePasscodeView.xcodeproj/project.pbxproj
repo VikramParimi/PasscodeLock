@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FB074920211DFDAF00F7773F /* SimplePasscodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB07491F211DFDAF00F7773F /* SimplePasscodeView.xib */; };
-		FB074924211E1C1100F7773F /* PasscodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB074923211E1C1100F7773F /* PasscodeConfiguration.swift */; };
-		FB1D3070211B6D8300F0EA4A /* PinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D306F211B6D8300F0EA4A /* PinView.swift */; };
 		FB8BB9D12119C77100C23FBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8BB9D02119C77100C23FBC /* AppDelegate.swift */; };
 		FB8BB9D32119C77100C23FBC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8BB9D22119C77100C23FBC /* ViewController.swift */; };
 		FB8BB9D62119C77100C23FBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB8BB9D42119C77100C23FBC /* Main.storyboard */; };
 		FB8BB9D82119C77300C23FBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB8BB9D72119C77300C23FBC /* Assets.xcassets */; };
 		FB8BB9DB2119C77300C23FBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB8BB9D92119C77300C23FBC /* LaunchScreen.storyboard */; };
 		FB8BB9E62119C77400C23FBC /* SimplePasscodeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8BB9E52119C77400C23FBC /* SimplePasscodeViewTests.swift */; };
-		FB8BB9F12119C96100C23FBC /* SimplePasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8BB9F02119C96100C23FBC /* SimplePasscodeView.swift */; };
-		FBC58CFD211EE5CF007D24EA /* PinIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC58CFC211EE5CF007D24EA /* PinIndicator.swift */; };
+		FBEFB9662126F0A10082CA29 /* SimplePasscodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBEFB9612126F0A10082CA29 /* SimplePasscodeView.xib */; };
+		FBEFB9672126F0A10082CA29 /* PinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEFB9622126F0A10082CA29 /* PinView.swift */; };
+		FBEFB9682126F0A10082CA29 /* PasscodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEFB9632126F0A10082CA29 /* PasscodeConfiguration.swift */; };
+		FBEFB9692126F0A10082CA29 /* PinIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEFB9642126F0A10082CA29 /* PinIndicator.swift */; };
+		FBEFB96A2126F0A10082CA29 /* SimplePasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEFB9652126F0A10082CA29 /* SimplePasscodeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,9 +31,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FB07491F211DFDAF00F7773F /* SimplePasscodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimplePasscodeView.xib; sourceTree = "<group>"; };
-		FB074923211E1C1100F7773F /* PasscodeConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeConfiguration.swift; sourceTree = "<group>"; };
-		FB1D306F211B6D8300F0EA4A /* PinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinView.swift; sourceTree = "<group>"; };
 		FB8BB9CD2119C77100C23FBC /* SimplePasscodeView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplePasscodeView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8BB9D02119C77100C23FBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB8BB9D22119C77100C23FBC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,8 +41,11 @@
 		FB8BB9E12119C77400C23FBC /* SimplePasscodeViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimplePasscodeViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8BB9E52119C77400C23FBC /* SimplePasscodeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePasscodeViewTests.swift; sourceTree = "<group>"; };
 		FB8BB9E72119C77400C23FBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB8BB9F02119C96100C23FBC /* SimplePasscodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePasscodeView.swift; sourceTree = "<group>"; };
-		FBC58CFC211EE5CF007D24EA /* PinIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinIndicator.swift; sourceTree = "<group>"; };
+		FBEFB9612126F0A10082CA29 /* SimplePasscodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimplePasscodeView.xib; sourceTree = "<group>"; };
+		FBEFB9622126F0A10082CA29 /* PinView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinView.swift; sourceTree = "<group>"; };
+		FBEFB9632126F0A10082CA29 /* PasscodeConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeConfiguration.swift; sourceTree = "<group>"; };
+		FBEFB9642126F0A10082CA29 /* PinIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinIndicator.swift; sourceTree = "<group>"; };
+		FBEFB9652126F0A10082CA29 /* SimplePasscodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePasscodeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,15 +89,11 @@
 			children = (
 				FB8BB9D02119C77100C23FBC /* AppDelegate.swift */,
 				FB8BB9D22119C77100C23FBC /* ViewController.swift */,
-				FB8BB9F02119C96100C23FBC /* SimplePasscodeView.swift */,
-				FB074923211E1C1100F7773F /* PasscodeConfiguration.swift */,
-				FB1D306F211B6D8300F0EA4A /* PinView.swift */,
-				FBC58CFC211EE5CF007D24EA /* PinIndicator.swift */,
-				FB07491F211DFDAF00F7773F /* SimplePasscodeView.xib */,
 				FB8BB9D42119C77100C23FBC /* Main.storyboard */,
 				FB8BB9D72119C77300C23FBC /* Assets.xcassets */,
 				FB8BB9D92119C77300C23FBC /* LaunchScreen.storyboard */,
 				FB8BB9DC2119C77400C23FBC /* Info.plist */,
+				FBEFB9602126F0A10082CA29 /* PasscodeView */,
 			);
 			path = SimplePasscodeView;
 			sourceTree = "<group>";
@@ -109,6 +105,18 @@
 				FB8BB9E72119C77400C23FBC /* Info.plist */,
 			);
 			path = SimplePasscodeViewTests;
+			sourceTree = "<group>";
+		};
+		FBEFB9602126F0A10082CA29 /* PasscodeView */ = {
+			isa = PBXGroup;
+			children = (
+				FBEFB9612126F0A10082CA29 /* SimplePasscodeView.xib */,
+				FBEFB9622126F0A10082CA29 /* PinView.swift */,
+				FBEFB9632126F0A10082CA29 /* PasscodeConfiguration.swift */,
+				FBEFB9642126F0A10082CA29 /* PinIndicator.swift */,
+				FBEFB9652126F0A10082CA29 /* SimplePasscodeView.swift */,
+			);
+			path = PasscodeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,8 +201,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB8BB9DB2119C77300C23FBC /* LaunchScreen.storyboard in Resources */,
-				FB074920211DFDAF00F7773F /* SimplePasscodeView.xib in Resources */,
 				FB8BB9D82119C77300C23FBC /* Assets.xcassets in Resources */,
+				FBEFB9662126F0A10082CA29 /* SimplePasscodeView.xib in Resources */,
 				FB8BB9D62119C77100C23FBC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,12 +221,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBEFB96A2126F0A10082CA29 /* SimplePasscodeView.swift in Sources */,
+				FBEFB9692126F0A10082CA29 /* PinIndicator.swift in Sources */,
+				FBEFB9682126F0A10082CA29 /* PasscodeConfiguration.swift in Sources */,
 				FB8BB9D32119C77100C23FBC /* ViewController.swift in Sources */,
 				FB8BB9D12119C77100C23FBC /* AppDelegate.swift in Sources */,
-				FBC58CFD211EE5CF007D24EA /* PinIndicator.swift in Sources */,
-				FB074924211E1C1100F7773F /* PasscodeConfiguration.swift in Sources */,
-				FB8BB9F12119C96100C23FBC /* SimplePasscodeView.swift in Sources */,
-				FB1D3070211B6D8300F0EA4A /* PinView.swift in Sources */,
+				FBEFB9672126F0A10082CA29 /* PinView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,13 +390,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "$(SRCROOT)/SimplePasscodeView/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vikram.SimplePasscodeView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -399,13 +408,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "$(SRCROOT)/SimplePasscodeView/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vikram.SimplePasscodeView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -1,15 +1,14 @@
 //
-//  MHPasscodeViewTests.swift
-//  MHPasscodeViewTests
+//  SimplePasscodeViewTests.swift
+//  SimplePasscodeView
 //
-//  Created by Pairmi, Vikram (US - Bengaluru) on 8/7/18.
-//  Copyright © 2018 vikram. All rights reserved.
+//  Copyright © 2018 Geeko Coco. All rights reserved.
 //
 
 import XCTest
-@testable import MHPasscodeView
+@testable import SimplePasscodeView
 
-class MHPasscodeViewTests: XCTestCase {
+class SimplePasscodeViewTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
