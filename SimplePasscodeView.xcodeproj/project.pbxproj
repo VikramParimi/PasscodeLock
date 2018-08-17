@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FB074920211DFDAF00F7773F /* SimplePasscodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB07491F211DFDAF00F7773F /* SimplePasscodeView.xib */; };
-		FB074922211E0AB900F7773F /* SimplePasscodeView+UIKeyInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB074921211E0AB900F7773F /* SimplePasscodeView+UIKeyInput.swift */; };
 		FB074924211E1C1100F7773F /* PasscodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB074923211E1C1100F7773F /* PasscodeConfiguration.swift */; };
 		FB1D3070211B6D8300F0EA4A /* PinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D306F211B6D8300F0EA4A /* PinView.swift */; };
 		FB8BB9D12119C77100C23FBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8BB9D02119C77100C23FBC /* AppDelegate.swift */; };
@@ -33,7 +32,6 @@
 
 /* Begin PBXFileReference section */
 		FB07491F211DFDAF00F7773F /* SimplePasscodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimplePasscodeView.xib; sourceTree = "<group>"; };
-		FB074921211E0AB900F7773F /* SimplePasscodeView+UIKeyInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SimplePasscodeView+UIKeyInput.swift"; sourceTree = "<group>"; };
 		FB074923211E1C1100F7773F /* PasscodeConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeConfiguration.swift; sourceTree = "<group>"; };
 		FB1D306F211B6D8300F0EA4A /* PinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinView.swift; sourceTree = "<group>"; };
 		FB8BB9CD2119C77100C23FBC /* SimplePasscodeView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplePasscodeView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,7 +90,6 @@
 				FB8BB9D02119C77100C23FBC /* AppDelegate.swift */,
 				FB8BB9D22119C77100C23FBC /* ViewController.swift */,
 				FB8BB9F02119C96100C23FBC /* SimplePasscodeView.swift */,
-				FB074921211E0AB900F7773F /* SimplePasscodeView+UIKeyInput.swift */,
 				FB074923211E1C1100F7773F /* PasscodeConfiguration.swift */,
 				FB1D306F211B6D8300F0EA4A /* PinView.swift */,
 				FBC58CFC211EE5CF007D24EA /* PinIndicator.swift */,
@@ -221,7 +218,6 @@
 				FBC58CFD211EE5CF007D24EA /* PinIndicator.swift in Sources */,
 				FB074924211E1C1100F7773F /* PasscodeConfiguration.swift in Sources */,
 				FB8BB9F12119C96100C23FBC /* SimplePasscodeView.swift in Sources */,
-				FB074922211E0AB900F7773F /* SimplePasscodeView+UIKeyInput.swift in Sources */,
 				FB1D3070211B6D8300F0EA4A /* PinView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

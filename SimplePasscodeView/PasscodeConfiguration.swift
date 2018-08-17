@@ -7,19 +7,13 @@
 
 import Foundation
 
-public struct Passcode {
-    var length                  = 6
-    var isSecureEntry           = true
-    var defaultSpacing: Float   = 5
-    var customSpacingPosition   = -1
-    var customSpacing           = 20
-}
+private var passcodeLength                 = 6
+private var passcodeIsSecureEntry          = true
+private var passcodeDefaultSpacing: Float  = 5
+private var passcodeCustomSpacingPosition  = -1
+private var passcodeCustomSpacing          = 20
 
-public protocol SimplePasscodable {
-    var passcode: Passcode {get set}
-}
-
-public protocol PasscodeConfigurable: SimplePasscodable {
+public protocol PasscodeConfigurable {
     var length: Int {get set}
     var isSecureEntry: Bool {get set}
     var defaultSpacing: Float {get set}
@@ -28,23 +22,20 @@ public protocol PasscodeConfigurable: SimplePasscodable {
 }
 
 public extension PasscodeConfigurable {
-    var passcode: Passcode {
-        get {return Passcode()}
-        set {passcode = newValue}}
     var length: Int {
-        get {return passcode.length}
-        set {passcode.length =  newValue}}
+        get {return passcodeLength}
+        set {passcodeLength =  newValue}}
     var isSecureEntry: Bool {
-        get {return passcode.isSecureEntry}
-        set {passcode.isSecureEntry =  newValue}}
+        get {return passcodeIsSecureEntry}
+        set {passcodeIsSecureEntry =  newValue}}
     var defaultSpacing: Float {
-        get {return passcode.defaultSpacing}
-        set {passcode.defaultSpacing =  newValue}}
+        get {return passcodeDefaultSpacing}
+        set {passcodeDefaultSpacing =  newValue}}
     var customSpacingPosition: Int {
-        get {return passcode.customSpacingPosition}
-        set {passcode.customSpacingPosition =  newValue}}
+        get {return passcodeCustomSpacingPosition}
+        set {passcodeCustomSpacingPosition =  newValue}}
     var customSpacing: Int {
-        get {return passcode.customSpacing}
-        set {passcode.customSpacing =  newValue}}
+        get {return passcodeCustomSpacing}
+        set {passcodeCustomSpacing =  newValue}}
 }
 

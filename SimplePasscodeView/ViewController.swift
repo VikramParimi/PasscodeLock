@@ -18,7 +18,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: SimplePasscodeDelegate {
-    func didEnter(_ passcode: String) {
+    func didFinishEntering(_ passcode: String) {
         print("passcode: \(passcode)")
     }
 }
