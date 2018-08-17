@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         passcodeView.delegate = self
+        passcodeView.pinfillColor = UIColor.blue
     }
 }
 

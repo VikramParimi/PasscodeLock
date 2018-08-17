@@ -14,7 +14,7 @@ private enum PinViewDefaults {
     static let pinIndicatorHeight: CGFloat = 10.0
 }
 
-class PinView: UIView {
+class PinView: UIView, PinViewConfigurable {
     
     private lazy var indicator = PinIndicator()
     private lazy var pinLabel  = UILabel()
@@ -68,8 +68,8 @@ class PinView: UIView {
             pinLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
             pinLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
             
-            pinLabel.font = UIFont.systemFont(ofSize: 22)
-            pinLabel.textColor = UIColor.black
+            pinLabel.font = pinfont
+            pinLabel.textColor = pinfontColor
             pinLabel.text = andText
             
             pinLabel.isHidden  = false
