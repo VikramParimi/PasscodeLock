@@ -9,6 +9,7 @@ import UIKit
 
 public protocol SimplePasscodeDelegate: class {
     func didFinishEntering(_ passcode: String)
+    func didDeleteBackward()
 }
 
 public class SimplePasscodeView: UIView {
@@ -16,7 +17,7 @@ public class SimplePasscodeView: UIView {
     @IBOutlet private weak var passcodeStackView: UIStackView!
     
     private var contentView: UIView?
-    private var passscodeText = String()
+    private var passcodeText = String()
     
     public weak var delegate: SimplePasscodeDelegate?
     public var keyboardType: UIKeyboardType = .default
@@ -76,6 +77,15 @@ extension SimplePasscodeView: PasscodeConfigurable {
         }
         return views
     }
+    
+    public func clear() {
+        passcodeStackView.arrangedSubviews.forEach { (view) in
+            if let pinView = view as? PinView {
+                pinView.update(fill: false, andText: nil, isSecureEntry: isSecureEntry)
+            }
+        }
+        passcodeText.removeAll()
+    }
 }
 
 extension SimplePasscodeView: UIKeyInput {
@@ -89,12 +99,12 @@ extension SimplePasscodeView: UIKeyInput {
     }
     
     public var hasText: Bool {
-        return !passscodeText.isEmpty
+        return !passcodeText.isEmpty
     }
     
     public func insertText(_ text: String) {
         guard canInsertCharacters() else { return }
-        passscodeText.append(text)
+        passcodeText.append(text)
         
         guard let view = passcodeStackView.arrangedSubviews.filter({ (view) -> Bool in
             if let pinView = view as? PinView,
@@ -106,14 +116,16 @@ extension SimplePasscodeView: UIKeyInput {
         
         view.update(fill: true, andText: text, isSecureEntry: isSecureEntry)
         
-        if passscodeText.count == length {
-            delegate?.didFinishEntering(passscodeText)
+        if passcodeText.count == length {
+            delegate?.didFinishEntering(passcodeText)
         }
     }
     
     public func deleteBackward() {
         guard hasText else { return }
-        passscodeText.removeLast()
+        
+        passcodeText.removeLast()
+        delegate?.didDeleteBackward()
         
         guard let view = passcodeStackView.arrangedSubviews.filter({ (view) -> Bool in
             if let pinView = view as? PinView,
@@ -127,6 +139,6 @@ extension SimplePasscodeView: UIKeyInput {
     }
     
     private func canInsertCharacters() -> Bool {
-        return passscodeText.count != length
+        return passcodeText.count != length
     }
 }
