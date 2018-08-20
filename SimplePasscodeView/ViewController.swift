@@ -14,16 +14,28 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         passcodeView.delegate = self
-        passcodeView.pinfillColor = UIColor.green
-        passcodeView.isSecureEntry = false
-        passcodeView.pinfont = UIFont.boldSystemFont(ofSize: 25)
-        passcodeView.pinfontColor = UIColor.blue
+        
+        passcodeView.isSecureEntry = true
+        passcodeView.length = 5
+        passcodeView.keyboardType = .numberPad
+        
+        passcodeView.pinborderColor = UIColor.blue.cgColor
+        passcodeView.pinfillColor = UIColor.lightGray
     }
 }
 
 extension ViewController: SimplePasscodeDelegate {
+    func didDeleteBackward() {
+         //Do whatever you want
+    }
+    
     func didFinishEntering(_ passcode: String) {
+        //Do whatever you want
         print("passcode: \(passcode)")
+        let alert = UIAlertController(title: "Passcode", message: passcode, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alert.addAction(alertAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 
