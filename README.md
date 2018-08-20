@@ -8,7 +8,7 @@ It allows both alphanumerics and emoji entry as passcode.
 
 ## How it works
 
-<img src="//i.imgur.com/A1PzUT7.gif" width="200"> <img src="//i.imgur.com/CMNph39.gif" width="200"> 
+<img src="https://media.giphy.com/media/LWH6UtIxQP2lFKZvk2/giphy.gif" width="200">    <img src="https://media.giphy.com/media/1ncprJq78LsB2kK1Ok/giphy.gif" width="200"> 
 
 ## Usage
 ### Via Cocoapods
@@ -45,7 +45,7 @@ func didFinishEntering(_ passcode: String) {
 
 Drag and drop a `UIView` in your `xib` or `storyboard` and assign the custom class to `SimplePasscodeView`. Follow the steps below:
 
-<img src="//i.imgur.com/qJGsSHT.gif">
+<img src="https://media.giphy.com/media/6267V73HjBR0N7C6AJ/giphy.gif">
 
 ## Customizable Properties
 
