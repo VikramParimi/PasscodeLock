@@ -20,7 +20,7 @@ public class SimplePasscodeView: UIView {
     private var passcodeText = String()
     
     public weak var delegate: SimplePasscodeDelegate?
-    public var keyboardType: UIKeyboardType = .default
+    public var keyboardType: UIKeyboardType = .numberPad
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -79,12 +79,14 @@ extension SimplePasscodeView: PasscodeConfigurable {
     }
     
     public func clear() {
-        passcodeStackView.arrangedSubviews.forEach { (view) in
-            if let pinView = view as? PinView {
-                pinView.update(fill: false, andText: nil, isSecureEntry: isSecureEntry)
+        UIView.animate(withDuration: 0.3) {
+            self.passcodeStackView.arrangedSubviews.forEach { (view) in
+                if let pinView = view as? PinView {
+                    pinView.update(fill: false, andText: nil, isSecureEntry: self.isSecureEntry)
+                }
             }
+            self.passcodeText.removeAll()
         }
-        passcodeText.removeAll()
     }
 }
 
