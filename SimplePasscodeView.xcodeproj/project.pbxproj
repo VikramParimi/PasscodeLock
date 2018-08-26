@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB03E1552132EAE80048F38A /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB03E1542132EAE80048F38A /* TestViewController.swift */; };
 		FB8BB9D12119C77100C23FBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8BB9D02119C77100C23FBC /* AppDelegate.swift */; };
 		FB8BB9D32119C77100C23FBC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8BB9D22119C77100C23FBC /* ViewController.swift */; };
 		FB8BB9D62119C77100C23FBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB8BB9D42119C77100C23FBC /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB03E1542132EAE80048F38A /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		FB8BB9CD2119C77100C23FBC /* SimplePasscodeView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplePasscodeView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8BB9D02119C77100C23FBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB8BB9D22119C77100C23FBC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			children = (
 				FB8BB9D02119C77100C23FBC /* AppDelegate.swift */,
 				FB8BB9D22119C77100C23FBC /* ViewController.swift */,
+				FB03E1542132EAE80048F38A /* TestViewController.swift */,
 				FB8BB9D42119C77100C23FBC /* Main.storyboard */,
 				FB8BB9D72119C77300C23FBC /* Assets.xcassets */,
 				FB8BB9D92119C77300C23FBC /* LaunchScreen.storyboard */,
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB03E1552132EAE80048F38A /* TestViewController.swift in Sources */,
 				FBEFB96A2126F0A10082CA29 /* SimplePasscodeView.swift in Sources */,
 				FBEFB9692126F0A10082CA29 /* PinIndicator.swift in Sources */,
 				FBEFB9682126F0A10082CA29 /* PasscodeConfiguration.swift in Sources */,
