@@ -16,11 +16,12 @@ class ViewController: UIViewController {
         passcodeView.delegate = self
         
         passcodeView.isSecureEntry = true
-        passcodeView.length = 5
+        passcodeView.length = 7
+    
         passcodeView.keyboardType = .numberPad
         
-        passcodeView.pinborderColor = UIColor.blue.cgColor
-        passcodeView.pinfillColor = UIColor.lightGray
+    //    passcodeView.pinborderColor = UIColor.brown.cgColor
+    //    passcodeView.pinfillColor = UIColor.black
     }
 }
 
@@ -32,10 +33,9 @@ extension ViewController: SimplePasscodeDelegate {
     func didFinishEntering(_ passcode: String) {
         //Do whatever you want
         print("passcode: \(passcode)")
-        let alert = UIAlertController(title: "Passcode", message: passcode, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-        alert.addAction(alertAction)
-        present(alert, animated: true, completion: nil)
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "TestViewController")
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

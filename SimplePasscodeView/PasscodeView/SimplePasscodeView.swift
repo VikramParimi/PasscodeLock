@@ -21,7 +21,13 @@ public class SimplePasscodeView: UIView {
     
     public weak var delegate: SimplePasscodeDelegate?
     public var keyboardType: UIKeyboardType = .numberPad
-
+    
+    private var passcodeLength                 = 6
+    private var passcodeIsSecureEntry          = true
+    private var passcodeDefaultSpacing: Float  = 5
+    private var passcodeCustomSpacingPosition  = -1
+    private var passcodeCustomSpacing          = 20
+    
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -51,7 +57,7 @@ public class SimplePasscodeView: UIView {
     }
 }
 
-extension SimplePasscodeView: PasscodeConfigurable {
+extension SimplePasscodeView {
     
     private func setupPasscodeStackView() {
         placeHolderViews.forEach { (view) in
@@ -143,4 +149,31 @@ extension SimplePasscodeView: UIKeyInput {
     private func canInsertCharacters() -> Bool {
         return passcodeText.count != length
     }
+}
+
+public protocol PasscodeConfigurable: PinViewConfigurable {
+    
+    var length: Int {get set}
+    var isSecureEntry: Bool {get set}
+    var defaultSpacing: Float {get set}
+    var customSpacingPosition: Int {get set}
+    var customSpacing: Int {get set}
+}
+
+extension SimplePasscodeView: PasscodeConfigurable {
+    public var length: Int {
+        get {return passcodeLength}
+        set {passcodeLength =  newValue}}
+    public var isSecureEntry: Bool {
+        get {return passcodeIsSecureEntry}
+        set {passcodeIsSecureEntry =  newValue}}
+    public var defaultSpacing: Float {
+        get {return passcodeDefaultSpacing}
+        set {passcodeDefaultSpacing =  newValue}}
+    public var customSpacingPosition: Int {
+        get {return passcodeCustomSpacingPosition}
+        set {passcodeCustomSpacingPosition =  newValue}}
+    public var customSpacing: Int {
+        get {return passcodeCustomSpacing}
+        set {passcodeCustomSpacing =  newValue}}
 }
